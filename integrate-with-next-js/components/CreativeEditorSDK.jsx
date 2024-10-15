@@ -1,8 +1,8 @@
 // docs-integrate-nextjs-1
-import CreativeEditorSDK from '@cesdk/cesdk-js';
+import CreativeEditorSDK from "@cesdk/cesdk-js";
 // docs-integrate-nextjs-1
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 // docs-integrate-nextjs-3
 const Component = (props = {}) => {
@@ -13,16 +13,16 @@ const Component = (props = {}) => {
     if (cesdk_container.current) {
       // Serve assets from IMG.LY CDN or locally
       props.config.baseURL =
-        'https://cdn.img.ly/packages/imgly/cesdk-js/1.17.0/assets';
+        "https://cdn.img.ly/packages/imgly/cesdk-js/1.17.0/assets";
       // Enable local uploads in Asset Library
-      props.config.callbacks = { onUpload: 'local' };
+      props.config.callbacks = { onUpload: "local" };
 
       CreativeEditorSDK.create(cesdk_container.current, props.config).then(
         async (instance) => {
           // Do something with the instance of CreativeEditor SDK, for example:
           // Populate the asset library with default / demo asset sources.
           instance.addDefaultAssetSources();
-          instance.addDemoAssetSources({ sceneMode: 'Design' });
+          instance.addDemoAssetSources({ sceneMode: "Design" });
           await instance.createDesignScene();
         }
       );
@@ -31,10 +31,13 @@ const Component = (props = {}) => {
 
   return (
     // docs-integrate-nextjs-2
-    <div
-      ref={cesdk_container}
-      style={{ width: '100vw', height: '100vh' }}
-    ></div>
+    <>
+    <div  style={{height: "56px", padding: "16px", backgroundColor: "#e1f16b", color: "black" }}>POSTER.FUN</div>
+      <div
+        ref={cesdk_container}
+        style={{ width: "100vw", height: "100vh" }}
+      ></div>
+    </>
     // docs-integrate-nextjs-2
   );
 };
